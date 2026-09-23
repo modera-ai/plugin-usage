@@ -1,0 +1,28 @@
+{
+  "name": "@modera-plugin/usage",
+  "version": "0.2.0",
+  "type": "module",
+  "description": "Provider token usage statistics for Modera.",
+  "files": [
+    "plugin.json",
+    "dist",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "modera-plugin-build ."
+  },
+  "devDependencies": {
+    "@modera/plugin-build": "0.1.0",
+    "@modera/plugin-sdk": "0.1.0",
+    "@types/react-dom": "^19.1.9"
+  },
+  "dependencies": {
+    "lucide-react": "^1.17.0",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "MIT"
+}
