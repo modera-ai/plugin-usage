@@ -1,6 +1,6 @@
 body { margin: 0; background: transparent; }
 .usage-settings-ui { min-height: 100vh; }
-.usage-range { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; color: var(--mu-muted); font-size: 12px; }
+.usage-range { display: flex; align-items: center; justify-content: flex-end; margin-bottom: 18px; color: var(--mu-muted); font-size: 12px; }
 .usage-stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin-bottom: 18px; }
 .usage-charts, .usage-details { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 18px; }
 .usage-charts > section, .usage-details > section, .usage-models { min-width: 0; padding: 18px; border: 1px solid var(--mu-line); border-radius: 12px; background: var(--mu-card); }
