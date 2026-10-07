@@ -12,6 +12,7 @@
   "permissions": ["storage.read", "storage.write", "runs.observe"],
   "extensions": ["settings"],
   "settings": {
+    "group": "statistics",
     "title": "Usage statistics",
     "frontend": "usage",
     "waitForReady": true,
