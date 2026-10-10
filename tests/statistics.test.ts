@@ -40,7 +40,7 @@ describe("usage statistics", () => {
           profileId: "anthropic",
           profileName: "Claude 主配置",
           reasoningEffort: "high",
-          tools: [{ owner: "modera.workspace", tool: "workspace_read" }],
+          tools: [{ owner: "modera.filesystem", tool: "filesystem_read" }],
         }),
       ],
       new Date("2026-09-20T12:00:00"),
@@ -59,8 +59,8 @@ describe("usage statistics", () => {
     expect(result.profiles[1]).toMatchObject({ name: "Claude 主配置", runs: 1 });
     expect(result.efforts[0]).toMatchObject({ name: "unknown", runs: 2 });
     expect(result.tools[0]).toMatchObject({
-      owner: "modera.workspace",
-      tool: "workspace_read",
+      owner: "modera.filesystem",
+      tool: "filesystem_read",
       runs: 1,
     });
   });
