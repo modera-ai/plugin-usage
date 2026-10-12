@@ -1,6 +1,6 @@
 {
   "name": "@modera-plugin/usage",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "type": "module",
   "description": "Provider token usage statistics for Modera.",
   "files": [

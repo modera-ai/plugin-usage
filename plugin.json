@@ -3,7 +3,7 @@
   "activationScope": "global",
   "id": "modera.usage",
   "name": "Usage",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Track provider-reported token usage and activity locally.",
   "author": "Modera",
   "category": "productivity",
