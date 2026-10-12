@@ -1,5 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { ChevronLeft, ChevronRight, RefreshCw } from "lucide-react";
+import { CaretLeftIcon as ChevronLeft } from "@phosphor-icons/react/dist/csr/CaretLeft";
+import { CaretRightIcon as ChevronRight } from "@phosphor-icons/react/dist/csr/CaretRight";
+import { ArrowsClockwiseIcon as RefreshCw } from "@phosphor-icons/react/dist/csr/ArrowsClockwise";
 import { AreaChart, BarChart, Button, ColumnChart, DialogNotice, DonutChart, Tabs, TabsList, TabsTrigger, UiProvider, UsageRankList, UsageStat } from "@modera/ui";
 import { TokenActivity } from "@modera/ui/agent";
 import { SettingsPage } from "@modera/ui/settings";
