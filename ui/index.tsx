@@ -20,9 +20,9 @@ const compact = (value: number, locale: string) => new Intl.NumberFormat(locale,
 const friendly = (value: string, zh: boolean) => {
   const names: Record<string, [string, string]> = {
     "modera.browser": ["浏览器", "Browser"], "modera.terminal": ["终端", "Terminal"], "modera.websearch": ["网络搜索", "Web search"],
-    "modera.workspace": ["工作区", "Workspace"], "modera.memory": ["记忆", "Memory"], "modera.openers": ["打开方式", "Openers"],
+    "modera.filesystem": ["文件系统", "Filesystem"], "modera.memory": ["记忆", "Memory"], "modera.openers": ["打开方式", "Openers"],
     "modera.instructions": ["指令", "Instructions"], "modera.interaction": ["交互", "Interaction"], "modera.todo": ["待办", "Todo"],
-    workspace_read: ["读取文件", "Read file"], workspace_write: ["写入文件", "Write file"], workspace_search: ["搜索文件", "Search files"],
+    filesystem_read: ["读取文件", "Read file"], workspace_write: ["写入文件", "Write file"], workspace_search: ["搜索文件", "Search files"],
     terminal_execute: ["执行命令", "Execute command"], terminal_session: ["终端会话", "Terminal session"], browser_create: ["打开网页", "Open page"], web_search: ["网络搜索", "Web search"],
   };
   return names[value]?.[zh ? 0 : 1] ?? value.replace(/^modera\./, "").replace(/_/g, " ");
