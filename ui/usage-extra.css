@@ -1,10 +1,10 @@
 body { margin: 0; background: transparent; }
 .usage-settings-ui { min-height: 100vh; }
-.usage-range { display: flex; align-items: center; justify-content: flex-end; margin-bottom: 18px; color: var(--mu-muted); font-size: 12px; }
-.usage-stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin-bottom: 18px; }
+.usage-range { display: flex; align-items: center; justify-content: flex-start; margin-bottom: 24px; color: var(--mu-muted); font-size: 12px; }
+.usage-stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; margin-bottom: 24px; border: 1px solid var(--mu-line); border-radius: 16px; overflow: hidden; }
 .usage-charts, .usage-details { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 18px; }
-.usage-charts > section, .usage-details > section, .usage-models { min-width: 0; padding: 18px; border: 1px solid var(--mu-line); border-radius: 12px; background: var(--mu-card); }
-.usage-charts h2, .usage-details h2, .usage-models h2 { margin: 0 0 18px; font-size: 14px; }
+.usage-charts > section, .usage-details > section, .usage-models { min-width: 0; padding: 18px; border: 1px solid var(--mu-line); border-radius: 16px; background: transparent; }
+.usage-charts h2, .usage-details h2, .usage-models h2 { margin: 0 0 18px; font-size: 16px; font-weight: 500; }
 .usage-details dl { margin: 0; }
 .usage-details dl > div { display: flex; justify-content: space-between; gap: 16px; padding: 9px 0; border-bottom: 1px solid var(--mu-line); }
 .usage-details dl > div:last-child { border-bottom: 0; }
@@ -21,3 +21,20 @@ body { margin: 0; background: transparent; }
 .usage-models footer { display: flex; align-items: center; justify-content: flex-end; gap: 8px; margin-top: 12px; }
 .usage-footnote { margin: 16px 0 0; }
 @media (max-width: 760px) { .usage-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); } .usage-charts, .usage-details { grid-template-columns: 1fr; } }
+
+.usage-stats .mu-usage-stat { border: 0; border-radius: 0; background: transparent; box-shadow: none; }
+
+.usage-settings-ui .usage-stats .mu-usage-stat { min-height: 60px; padding: 10px 14px; gap: 4px; }
+.usage-settings-ui .usage-stats .mu-usage-stat > strong { font-size: 19px; font-weight: 600; }
+.usage-settings-ui .usage-stats .mu-usage-stat:nth-child(n+5) { border-top: 1px solid var(--mu-line); }
+.usage-settings-ui .usage-range { margin-bottom: 16px; }
+.usage-settings-ui .usage-stats { margin-bottom: 16px; }
+.usage-settings-ui .mu-token-activity { padding: 14px 16px; background: transparent; }
+.usage-settings-ui .mu-token-activity h3 { font-size: 16px; font-weight: 500; }
+.usage-settings-ui .usage-charts, .usage-settings-ui .usage-details { gap: 12px; margin-top: 12px; }
+.usage-settings-ui .usage-charts > section, .usage-settings-ui .usage-details > section, .usage-settings-ui .usage-models { padding: 14px 16px; }
+.usage-settings-ui .usage-charts h2, .usage-settings-ui .usage-details h2, .usage-settings-ui .usage-models h2 { margin-bottom: 12px; font-size: 14px; }
+.usage-settings-ui .mu-usage-chart-empty { min-height: 90px; }
+@media (max-width: 760px) { .usage-settings-ui .usage-stats .mu-usage-stat:nth-child(n+3) { border-top: 1px solid var(--mu-line); } }
+
+.usage-settings-ui .mu-token-activity-header { margin-bottom: 12px; }

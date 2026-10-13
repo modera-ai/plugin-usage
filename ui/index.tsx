@@ -62,7 +62,7 @@ function UsageSettings() {
   const modelPages = Math.max(1, Math.ceil((data?.models.length ?? 0) / 10));
   const busiestDay = data && data.busiestWeekday >= 0
     ? new Intl.DateTimeFormat(locale, { weekday: "long" }).format(new Date(2026, 8, 20 + data.busiestWeekday)) : "—";
-  return <UiProvider theme="system" locale={zh ? "zh-CN" : "en"} className="usage-settings-ui">
+  return <UiProvider theme={snapshot?.theme?.mode ?? "system"} locale={zh ? "zh-CN" : "en"} className="usage-settings-ui mu-settings-codex">
     <SettingsPage title={t("用量统计", "Usage statistics")} description={t("跟踪真实的 Token 用量、缓存和请求汇总。", "Track real token usage, cache activity and request totals.")} actions={<Button variant="outline" size="small" disabled={loading} onClick={() => void refresh()}><RefreshCw size={15} />{t("刷新", "Refresh")}</Button>}>
       <div className="usage-range"><Tabs variant="quiet" value={String(range)} onValueChange={(value) => setRange(Number(value) as 7 | 30 | 90 | 365)}><TabsList aria-label={t("趋势日期范围", "Trend date range")}>{([7, 30, 90, 365] as const).map((value) => <TabsTrigger key={value} value={String(value)}>{value === 365 ? t("全年", "Year") : t(`近 ${value} 天`, `Last ${value} days`)}</TabsTrigger>)}</TabsList></Tabs></div>
       {error && <DialogNotice tone="error">{error}</DialogNotice>}
