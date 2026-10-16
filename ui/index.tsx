@@ -34,7 +34,7 @@ const effortName = (value: string, zh: boolean) => ({
   medium: zh ? "中" : "Medium", high: zh ? "高" : "High", xhigh: zh ? "极高" : "Extra high",
 })[value] ?? friendly(value, zh);
 const profileName = (name: string, zh: boolean) => /^[0-9a-f-]{16,}$/i.test(name)
-  ? `${zh ? "历史配置" : "Legacy profile"} · ${name.slice(0, 6)}`
+  ? zh ? "历史配置" : "Legacy profile"
   : name === "default" ? (zh ? "默认配置" : "Default profile") : name;
 const time = (ms: number, zh: boolean) => {
   const minutes = Math.floor(ms / 60000), hours = Math.floor(minutes / 60);
