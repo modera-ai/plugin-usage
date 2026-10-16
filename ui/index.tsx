@@ -2,12 +2,12 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { CaretLeftIcon as ChevronLeft } from "@phosphor-icons/react/dist/csr/CaretLeft";
 import { CaretRightIcon as ChevronRight } from "@phosphor-icons/react/dist/csr/CaretRight";
 import { ArrowsClockwiseIcon as RefreshCw } from "@phosphor-icons/react/dist/csr/ArrowsClockwise";
-import { AreaChart, BarChart, Button, ColumnChart, DialogNotice, DonutChart, Tabs, TabsList, TabsTrigger, UiProvider, UsageRankList, UsageStat } from "@modera/ui";
-import { TokenActivity } from "@modera/ui/agent";
-import { SettingsPage } from "@modera/ui/settings";
-import "@modera/ui/styles.css";
+import { AreaChart, BarChart, Button, ColumnChart, DialogNotice, DonutChart, Tabs, TabsList, TabsTrigger, UiProvider, UsageRankList, UsageStat } from "@pal/ui";
+import { TokenActivity } from "@pal/ui/agent";
+import { SettingsPage } from "@pal/ui/settings";
+import "@pal/ui/styles.css";
 import "./usage-extra.css";
-import { frontend, mountPlugin, settingsAction, usePluginSnapshot } from "@modera/plugin-sdk/react";
+import { frontend, mountPlugin, usePluginSnapshot } from "@pal/plugin-sdk/react";
 
 interface Day { date: string; tokens: number; inputTokens: number; outputTokens: number; runs: number }
 interface Ranked { name: string; tokens: number; runs: number }
@@ -51,7 +51,7 @@ function UsageSettings() {
   const t = (a: string, b: string) => zh ? a : b;
   const refresh = useCallback(async () => {
     setLoading(true); setLoadError("");
-    try { setData(await settingsAction<Data>("snapshot")); }
+    try { setData(await frontend().settings!.commands!.execute<Data>("pal.usage.snapshot", {})); }
     catch (cause) { setLoadError(String(cause)); }
     finally { setLoading(false); }
   }, []);
@@ -104,3 +104,4 @@ function UsageSettings() {
   </UiProvider>;
 }
 mountPlugin(<UsageSettings />);
+

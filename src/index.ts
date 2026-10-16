@@ -1,10 +1,21 @@
-import type { PluginModule } from "@modera/plugin-sdk";
+import { definePlugin, type PluginModule } from "@pal/plugin-sdk";
 import { aggregate, type UsageRecord } from "./statistics";
 import { UsageStore } from "./store";
+import manifest from "../plugin.json";
 
 export const activate: PluginModule["activate"] = async (host) => {
   const store = new UsageStore(host.storagePath);
+  const registered = await definePlugin(pal => {
+    const declaration = manifest.declarations.provides.commands[0]!;
+    pal.commands.register({ ...declaration, visibility: "private", run: async (_input, execution) => {
+      execution.context.signal.throwIfAborted();
+      const result = aggregate(await store.list());
+      execution.context.signal.throwIfAborted();
+      return result;
+    } });
+  }).activate(host);
   return {
+    ...registered,
     async runCompleted(event) {
       if (event.trigger === "manual") return;
       const metrics = event.metrics;
@@ -37,12 +48,6 @@ export const activate: PluginModule["activate"] = async (host) => {
       };
       if (await store.add(record)) host.invalidateUi?.();
     },
-    settings: {
-      actions: ["snapshot"],
-      async act(action) {
-        if (action.id !== "snapshot") throw new Error("Unknown usage action");
-        return aggregate(await store.list());
-      },
-    },
+    settings: { commands: ["pal.usage.snapshot"] },
   };
 };
