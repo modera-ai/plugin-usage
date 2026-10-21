@@ -1,7 +1,7 @@
 import { definePlugin, type PluginModule } from "@pal/plugin-sdk";
 import { aggregate, type UsageRecord } from "./statistics";
 import { UsageStore } from "./store";
-import manifest from "../plugin.json";
+import manifest from "../pal-manifest.json";
 
 export const activate: PluginModule["activate"] = async (host) => {
   const store = new UsageStore(host.storagePath);

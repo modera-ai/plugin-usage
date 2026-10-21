@@ -1,14 +1,9 @@
 {
-  "apiVersion": 1,
+  "title": "Usage",
   "activationScope": "global",
-  "id": "pal.usage",
-  "name": "Usage",
-  "version": "0.2.2",
-  "description": "Track provider-reported token usage and activity locally.",
   "author": "Modera",
   "category": "productivity",
   "icon": "chart-no-axes-column-increasing",
-  "main": "dist/index.cjs",
   "extensions": [
     "pal.ui.settings"
   ],
