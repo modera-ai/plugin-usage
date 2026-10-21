@@ -20,11 +20,8 @@ import { TokenActivity } from "@pal/ui/agent";
 import { SettingsPage } from "@pal/ui/settings";
 import "@pal/ui/styles.css";
 import "./usage-extra.css";
-import {
-  frontend,
-  mountPlugin,
-  usePluginSnapshot,
-} from "@pal/plugin-sdk/react";
+import { mountPlugin, usePluginSnapshot } from "@pal/plugin-sdk/react";
+import { pal } from "@pal/plugin-sdk";
 
 interface Day {
   date: string;
@@ -136,7 +133,7 @@ function UsageSettings() {
     setLoadError("");
     try {
       setData(
-        await frontend().command.execute<Data>(
+        await pal.command.execute<Data>(
           "pal.usage.snapshot",
           {},
         ),
@@ -148,7 +145,7 @@ function UsageSettings() {
     }
   }, []);
   useEffect(() => {
-    void frontend()
+    void pal
       .ready()
       .catch(() => {});
   }, []);
