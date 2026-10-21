@@ -9,9 +9,7 @@
   "category": "productivity",
   "icon": "chart-no-axes-column-increasing",
   "main": "dist/index.cjs",
-  "extensions": [
-    "settings"
-  ],
+  "extensions": ["pal.ui.settings"],
   "settings": {
     "group": "statistics",
     "title": "Usage statistics",
@@ -35,15 +33,13 @@
       "description": "在本地统计服务端返回的 Token 用量和活跃趋势。"
     }
   },
-  "contributions": [
-    "runCompleted"
-  ],
+  "contributions": ["runCompleted"],
   "requiresHost": {
     "pal.commands.callable": 1,
     "pal.commands.dispatch": 1,
-    "context.commands": 1,
-    "plugin.declarations": 1,
-    "settings.commands": 1
+    "pal.context.commands": 1,
+    "pal.plugin.declarations": 1,
+    "pal.settings.commands": 1
   },
   "declarations": {
     "provides": {
@@ -53,9 +49,7 @@
           "title": "读取用量统计",
           "visibility": "private",
           "readOnly": true,
-          "requiredPermissions": [
-            "storage.read"
-          ],
+          "requiredPermissions": ["pal.storage.read"],
           "inputSchema": {
             "type": "object",
             "additionalProperties": false,
@@ -65,8 +59,5 @@
       ]
     }
   },
-  "permissions": [
-    "storage.write",
-    "runs.observe"
-  ]
+  "permissions": ["pal.storage.write", "pal.runs.observe"]
 }
