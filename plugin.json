@@ -9,7 +9,9 @@
   "category": "productivity",
   "icon": "chart-no-axes-column-increasing",
   "main": "dist/index.cjs",
-  "extensions": ["pal.ui.settings"],
+  "extensions": [
+    "pal.ui.settings"
+  ],
   "settings": {
     "group": "statistics",
     "title": "Usage statistics",
@@ -33,13 +35,15 @@
       "description": "在本地统计服务端返回的 Token 用量和活跃趋势。"
     }
   },
-  "contributions": ["runCompleted"],
+  "contributions": [
+    "runCompleted"
+  ],
   "requiresHost": {
-    "pal.commands.callable": 1,
-    "pal.commands.dispatch": 1,
-    "pal.context.commands": 1,
+    "pal.command.callable": 1,
+    "pal.command.dispatch": 1,
+    "pal.context.command": 1,
     "pal.plugin.declarations": 1,
-    "pal.settings.commands": 1
+    "pal.command.settings": 1
   },
   "declarations": {
     "provides": {
@@ -49,7 +53,9 @@
           "title": "读取用量统计",
           "visibility": "private",
           "readOnly": true,
-          "requiredPermissions": ["pal.storage.read"],
+          "requiredPermissions": [
+            "pal.storage.read"
+          ],
           "inputSchema": {
             "type": "object",
             "additionalProperties": false,
@@ -57,7 +63,22 @@
           }
         }
       ]
+    },
+    "consumes": {
+      "commands": [
+        {
+          "id": "pal.frontend.context",
+          "reason": "使用已声明前端的宿主能力"
+        },
+        {
+          "id": "pal.frontend.settings",
+          "reason": "使用已声明前端的宿主能力"
+        }
+      ]
     }
   },
-  "permissions": ["pal.storage.write", "pal.runs.observe"]
+  "permissions": [
+    "pal.storage.write",
+    "pal.runs.observe"
+  ]
 }

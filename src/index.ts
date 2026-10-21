@@ -7,7 +7,7 @@ export const activate: PluginModule["activate"] = async (host) => {
   const store = new UsageStore(host.storagePath);
   const registered = await definePlugin(pal => {
     const declaration = manifest.declarations.provides.commands[0]!;
-    pal.commands.register({ ...declaration, visibility: "private", run: async (_input, execution) => {
+    pal.command.register({ ...declaration, visibility: "private", run: async (_input, execution) => {
       execution.context.signal.throwIfAborted();
       const result = aggregate(await store.list());
       execution.context.signal.throwIfAborted();

@@ -136,7 +136,7 @@ function UsageSettings() {
     setLoadError("");
     try {
       setData(
-        await frontend().settings!.commands!.execute<Data>(
+        await frontend().command.execute<Data>(
           "pal.usage.snapshot",
           {},
         ),
