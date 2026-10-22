@@ -8,7 +8,6 @@
     "pal.ui.settings"
   ],
   "settings": {
-    "group": "statistics",
     "title": "Usage statistics",
     "frontend": "usage",
     "waitForReady": true,
